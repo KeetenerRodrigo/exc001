@@ -6,7 +6,7 @@
 public class CreateEventByAccountCategoryTest {
 
     @isTest
-    static void givenThatTheAccountCreatedIsPremiumAndHasAnAnnualRevenueAboveOneMillionDollars() {
+    static void givenThatWhenCreatingANewAccountWithThePremiumCategoryAndAnnualRevenueGreaterThanOneMillionThenTheReturnOfTheEventisExpecttoBeNull() {
        Event event = new CreateEventByAccountCategory( 
            AccountFixtureFactory.newAccount('John Doe', 150000000, 'Premium')).createEvent();
 
@@ -18,7 +18,7 @@ public class CreateEventByAccountCategoryTest {
     }
 
     @isTest
-    static void givenTheAccountCreatedIsPremiumAndItsAnnualRevenueIsLessThanOneMillionDollars () {
+    static void givenThatWhenCreatingANewAccountWithThePremiumCategoryAndAnnualRevenueLessThanOneMillionThenTheReturnOfTheEventisExpecttoBeNull () {
         Event event = new CreateEventByAccountCategory(AccountFixtureFactory.newAccount('John Trê', 10, 'Premium') )
              .createEvent();
              
@@ -28,7 +28,7 @@ public class CreateEventByAccountCategoryTest {
     }
 
     @isTest
-    static void givenTheAccountCreatedIsGold () {
+    static void givenThatWhenCreatingANewAccountWithTheGoldCategoryThenTheEventReturnIsExpectToBeNull () {
         Event event = new CreateEventByAccountCategory(AccountFixtureFactory.newAccount('John Four', 150000000, 'Gold') )
              .createEvent();
              
@@ -38,7 +38,7 @@ public class CreateEventByAccountCategoryTest {
      }
 
      @isTest
-     static void givenTheAccountCreatedIsStandard () {
+     static void givenThatWhenCreatingANewAccountWithTheStandardCategoryThenTheEventReturnIsExpectToBeNull () {
          Event event = new CreateEventByAccountCategory(AccountFixtureFactory.newAccount('John Five', 150000000, 'Standard') )
               .createEvent();
               
