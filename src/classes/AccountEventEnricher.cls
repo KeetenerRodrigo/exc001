@@ -1,15 +1,13 @@
 /**
-* @author Keetener Rodrigo
-*/
+ * @author Keetener Rodrigo
+ */
 
-public class PremiumCategoryAboveOneMillion {
+public virtual class AccountEventEnricher {
     Account account;
-
     
-    public PremiumCategoryAboveOneMillion(Account account) {
+    public AccountEventEnricher(Account account) {
         this.account = account;
     }
-    
     
     public Event verify() {
         DateTime eventStartDateTime = DateTime.now().addDays(1);

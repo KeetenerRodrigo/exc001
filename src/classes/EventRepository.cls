@@ -1,6 +1,6 @@
 /**
-* @author Keetener Rodrigo
-*/
+ * @author Keetener Rodrigo
+ */
 
 public virtual class EventRepository {
     

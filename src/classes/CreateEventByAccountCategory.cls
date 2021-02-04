@@ -1,6 +1,6 @@
 /**
-* @author Keetener Rodrigo
-*/
+ * @author Keetener Rodrigo
+ */
 
 public class CreateEventByAccountCategory {
     Account account;
@@ -14,8 +14,8 @@ public class CreateEventByAccountCategory {
             when 'Premium' {
                 Event event;
 
-                if(account.annualRevenue > 100000000) {
-                    event = new PremiumCategoryAboveOneMillion(account).verify();
+                if(account.annualRevenue > 1000000) {
+                    event = new AccountEventEnricher(account).verify();
                 } 
                 
                 return event;
