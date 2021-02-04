@@ -1,0 +1,42 @@
+{
+  "summary": {
+    "outcome": "Passed",
+    "testsRan": 1,
+    "passing": 1,
+    "failing": 0,
+    "skipped": 0,
+    "passRate": "100%",
+    "failRate": "0%",
+    "skipRate": "0%",
+    "testStartTime": "Thu Feb 04 2021 14:42:30",
+    "testExecutionTimeInMs": 22,
+    "testTotalTimeInMs": 22,
+    "commandTimeInMs": 1091,
+    "hostname": "https://topi18-dev-ed.my.salesforce.com",
+    "orgId": "00D4x000006tHTPEA2",
+    "username": "keetenermachado99@gmai.com.salesagent",
+    "testRunId": "7074x00000My47t",
+    "userId": "0054x000003SSnkAAG"
+  },
+  "tests": [
+    {
+      "id": "07M4x000000R35mEAC",
+      "queueItemId": "7094x000000vOoJAAU",
+      "stackTrace": null,
+      "message": null,
+      "asyncApexJobId": "7074x00000My47tAAB",
+      "methodName": "givenTheAccountCreatedIsPremiumAndItsAnnualRevenueIsLessThanOneMillionDollars",
+      "outcome": "Pass",
+      "apexLogId": null,
+      "apexClass": {
+        "id": "01p4x00000KGDRNAA5",
+        "name": "CreateEventByAccountCategoryTest",
+        "namespacePrefix": null,
+        "fullName": "CreateEventByAccountCategoryTest"
+      },
+      "runTime": 22,
+      "testTimestamp": "2021-02-04T17:42:30.000+0000",
+      "fullName": "CreateEventByAccountCategoryTest.givenTheAccountCreatedIsPremiumAndItsAnnualRevenueIsLessThanOneMillionDollars"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+/**
+* @author Keetener Rodrigo
+*/
+
+public virtual class AccountTH extends TriggerHandler{
+
+    List<Account> newAccounts;
+    Map<Id,Account> oldAccounts;
+
+    public AccountTH(){
+        this((List<Account>) Trigger.new, (Map<Id, Account>) Trigger.oldMap);
+    }
+    
+    public AccountTH(List<Account> newAccounts,  Map<Id,Account> oldAccounts) {
+        this.newAccounts = newAccounts;
+        this.oldAccounts = oldAccounts;
+    }
+
+    virtual
+    override
+    public void afterInsert() {
+        List<Event> events = new List<Event>();
+
+        for(Account account : this.newAccounts) {
+            Event event = new CreateEventByAccountCategory(account).createEvent();
+
+            if(event != null) events.add(event);
+        }
+
+        new EventRepository().create(events);
+    }
+}
