@@ -17,6 +17,6 @@ public class AccountRepositoryTest {
         List<Account> accounts =  new AccountRepository().create(listAcccounts);
 
         System.assertEquals(listAcccounts.size(), 4);
-        System.assert(accounts == null);
+        System.assert(accounts != null);
     }
 }
