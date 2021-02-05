@@ -10,7 +10,6 @@ public virtual class AccountFilter {
         List<Account> filteredAccounts = new List<Account>();
 
         for (Account account: newAccounts){
-
             if(String.isEmpty(account.category__c)) {
                 continue;   
             }
@@ -23,8 +22,6 @@ public virtual class AccountFilter {
                 filteredAccounts.add(account);
                 continue;
             }
-
-            filteredAccounts.add(account);
         }
 
         return filteredAccounts;
