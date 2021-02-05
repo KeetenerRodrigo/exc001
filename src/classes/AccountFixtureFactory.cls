@@ -1,7 +1,6 @@
 /**
  * @author Keetener Rodrigo
  */
-
 @isTest
 public class AccountFixtureFactory {
   
@@ -20,5 +19,14 @@ public class AccountFixtureFactory {
     public static Account createAccount(Account account) {
         insert account;
         return account;
+    }
+
+    public static Map<String,SObject> createIntegratedScenario(){
+        Map<String,SObject> records = new Map<String,SObject> ();
+
+        Account account = createAccount('John Doe', 150000000, 'Premium');
+        records.put('account', account);
+
+        return records;
     }
 }
