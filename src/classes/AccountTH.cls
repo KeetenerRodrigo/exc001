@@ -7,6 +7,10 @@ public virtual class AccountTH extends TriggerHandler{
     List<Account> newAccounts;
     Map<Id,Account> oldAccounts;
 
+    AccountFilter filter;
+
+    EventAccountEnricher eventAccountEnricher;
+
     public AccountTH(){
         this((List<Account>) Trigger.new, (Map<Id, Account>) Trigger.oldMap);
     }
@@ -14,19 +18,20 @@ public virtual class AccountTH extends TriggerHandler{
     public AccountTH(List<Account> newAccounts,  Map<Id,Account> oldAccounts) {
         this.newAccounts = newAccounts;
         this.oldAccounts = oldAccounts;
+
+
+        this.filter = new AccountFilter();
+        this.eventAccountEnricher = new EventAccountEnricher();
     }
 
     virtual
     override
     public void afterInsert() {
-        List<Event> events = new List<Event>();
+       createNewEventForPremiumAccountsWithAnnualRevenueOverOneMillion();
+    }
 
-        for(Account account : this.newAccounts) {
-            Event event = new CreateEventByAccountCategory(account).createEvent();
-
-            if(event != null) events.add(event);
-        }
-
-        new EventRepository().create(events);
+    public void createNewEventForPremiumAccountsWithAnnualRevenueOverOneMillion(){
+        List<Account> premiumAccounts = this.filter.filterByCategoryAndAnnualRevenue(this.newAccounts, 1000000, 'Premium');
+        this.eventAccountEnricher.createScheduledEvent(premiumAccounts);
     }
 }
