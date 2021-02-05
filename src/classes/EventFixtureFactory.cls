@@ -1,7 +1,6 @@
 /**
  * @author Keetener Rodrigo
  */
-
 @isTest
 public with sharing class EventFixtureFactory {
     
