@@ -1,21 +1,22 @@
 /**
  * @author Keetener Rodrigo
  */
-
 @isTest
 public class AccountFilterTest {
     @isTest
-    static void filterByChangedDocumentNumberTest (){
-       List<Account> accounts = new List<Account>();
-        accounts.add(AccountFixtureFactory.newAccount('John Doe', 150000000, 'Premium'));
-        accounts.add(AccountFixtureFactory.newAccount('John Tre', 150000000, 'Standard'));
-        insert accounts;
+    static void filterAccountByCategoryAndAnnualRevenue (){
+        Map<String,SObject> records = AccountFixtureFactory.createIntegratedScenario();
+        Account account = (Account) records.get('account');
+
+        List<Account> accounts = new List<Account>();
+        accounts.add(account);
 
         AccountFilter filter = new AccountFilter();
+        List<Account> filteredAccountsPremium = filter.filterByCategoryAndAnnualRevenue(accounts, 1000000, 'Premium');
 
-        List<Account> filteredAccounts = filter.filterByCategoryAndAnnualRevenue(accounts);
+        System.assertEquals(accounts.size(), filteredAccountsPremium.size());
 
-        System.assertEquals(accounts.size(), filteredAccounts.size());
-        System.assert(filteredAccounts == null);
+        List<Account> filteredAccountsStandard = filter.filterByCategoryAndAnnualRevenue(accounts, 1000000, 'Standard');
+        System.assert(filteredAccountsStandard.size() == 0);
     }
 }
